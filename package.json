@@ -1,0 +1,5 @@
+{
+  "name": "adsorvia",
+  "private": true,
+  "description": "Monorepo root; app lives in next_term/"
+}
