@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
+/* NexTherm palette from Dashboards.pdf */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #16232A;
+  --nextherm-orange: #FF5B04;
+  --nextherm-gray: #ebebeb;
+  --nextherm-teal: #075056;
+  --nextherm-dark: #16232A;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-nextherm-orange: #FF5B04;
+  --color-nextherm-gray: #ebebeb;
+  --color-nextherm-teal: #075056;
+  --color-nextherm-dark: #16232A;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
