@@ -36,8 +36,17 @@ jobs:
 
       - name: Prepare artifact for GitHub Pages (basePath /Adsorvia)
         run: |
-          mkdir -p deploy/Adsorvia
-          cp -r next_term/out/* deploy/Adsorvia/
+          mkdir -p deploy deploy/Adsorvia
+          # Site root must have index.html for https://user.github.io/Adsorvia/
+          cp next_term/out/*.html deploy/ 2>/dev/null || true
+          cp next_term/out/*.svg deploy/ 2>/dev/null || true
+          cp next_term/out/favicon.ico deploy/ 2>/dev/null || true
+          # Assets referenced as /Adsorvia/_next/ and /Adsorvia/logo-* go in Adsorvia/
+          cp -r next_term/out/_next deploy/Adsorvia/
+          cp next_term/out/*.png deploy/Adsorvia/ 2>/dev/null || true
+          cp -r next_term/out/dashboard-tecnico deploy/Adsorvia/ 2>/dev/null || true
+          cp -r next_term/out/dashboard-ejecutivo deploy/Adsorvia/ 2>/dev/null || true
+          cp -r next_term/out/_not-found deploy/Adsorvia/ 2>/dev/null || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
