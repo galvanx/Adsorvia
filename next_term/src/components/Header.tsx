@@ -1,15 +1,14 @@
-"use client";
-
-import Link from "next/link";
-import Image from "next/image";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/#caso", label: "Caso y propuesta" },
-  { href: "/dashboard-tecnico", label: "Dashboard técnico" },
-  { href: "/dashboard-ejecutivo", label: "Dashboard ejecutivo" },
+  { to: "/", label: "Inicio" },
+  { to: "/", label: "Caso y propuesta" },
+  { to: "/dashboard-tecnico", label: "Dashboard técnico" },
+  { to: "/dashboard-ejecutivo", label: "Dashboard ejecutivo" },
 ];
+
+const base = import.meta.env.BASE_URL;
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,24 +16,22 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#ebebeb] bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-        <Link href="/" className="flex min-h-[44px] items-center gap-2">
-          <Image
-            src="/logo-icon.png"
+        <Link to="/" className="flex min-h-[44px] items-center gap-2">
+          <img
+            src={`${base}logo-icon.png`}
             alt="NexTherm"
             width={40}
             height={40}
             className="rounded-lg"
           />
-          <span className="text-lg font-semibold text-[#16232A]">
-            NexTherm
-          </span>
+          <span className="text-lg font-semibold text-[#16232A]">NexTherm</span>
         </Link>
 
         <nav className="hidden md:flex md:items-center md:gap-6">
-          {navLinks.map(({ href, label }) => (
+          {navLinks.map(({ to, label }) => (
             <Link
-              key={href}
-              href={href}
+              key={to + label}
+              to={to}
               className="min-h-[44px] min-w-[44px] items-center rounded-md px-3 py-2 text-[#075056] transition hover:bg-[#ebebeb] hover:text-[#FF5B04]"
             >
               {label}
@@ -77,10 +74,10 @@ export default function Header() {
       {menuOpen && (
         <div className="border-t border-[#ebebeb] bg-white px-4 py-3 md:hidden">
           <nav className="flex flex-col gap-1">
-            {navLinks.map(({ href, label }) => (
+            {navLinks.map(({ to, label }) => (
               <Link
-                key={href}
-                href={href}
+                key={to + label}
+                to={to}
                 className="min-h-[44px] rounded-md px-3 py-2 text-[#075056] hover:bg-[#ebebeb]"
                 onClick={() => setMenuOpen(false)}
               >

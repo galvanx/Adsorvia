@@ -1,9 +1,7 @@
 /**
  * Mock data for NexTherm dashboards. Invented but realistic per project (Arca Continental).
- * Ranges: 4.74 GWh/planta, COP 0.4–0.7, 12 plantas, CAPEX 1.1–1.7 MUSD/planta, etc.
  */
 
-// ---- Dashboard técnico ----
 export const kpiTecnico = {
   kwTermicosRecuperados: 127,
   kwFrioProducido: 63,
@@ -23,7 +21,7 @@ export const energiaRecuperadaVsDiseño = [
 ];
 
 export const balanceEnergetico = {
-  entrada: 4740, // GWh/año * 1000 = kWh scale for display
+  entrada: 4740,
   recuperado: 58,
   noRecuperable: 22,
   frioGenerado: 12,
@@ -60,13 +58,12 @@ export const alarmasEstado = {
 export const degradacionCop = [
   { mes: "Jul", cop: 0.52 },
   { mes: "Ago", cop: 0.51 },
-  { mes: "Sep", cop: 0.50 },
+  { mes: "Sep", cop: 0.5 },
   { mes: "Oct", cop: 0.49 },
   { mes: "Nov", cop: 0.48 },
   { mes: "Dic", cop: 0.49 },
 ];
 
-// ---- Dashboard ejecutivo ----
 export const impactoEnergetico = {
   kwhElectricosEvitados: 1247000,
   reduccionEnfriamientoPercent: 28.5,

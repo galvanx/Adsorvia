@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 
 export default function CasoPropuesta() {
@@ -13,17 +11,15 @@ export default function CasoPropuesta() {
 
       <div className="space-y-6 text-[#16232A]">
         <div>
-          <h3 className="text-lg font-semibold text-[#075056]">
-            Introducción
-          </h3>
+          <h3 className="text-lg font-semibold text-[#075056]">Introducción</h3>
           <p className="mt-2 leading-relaxed">
             Arca Continental genera calor residual en calderas, compresores y
             procesos térmicos que normalmente se pierde al ambiente. En paralelo,
             sus plantas consumen electricidad para enfriamiento industrial. La
             propuesta es implementar, de forma escalable en plantas seleccionadas
-            en México, un sistema de enfriamiento por adsorción de silicagel
-            que transforme ese calor desperdiciado en frío útil, reduciendo el
-            uso de compresores eléctricos y las emisiones asociadas.
+            en México, un sistema de enfriamiento por adsorción de silicagel que
+            transforme ese calor desperdiciado en frío útil, reduciendo el uso
+            de compresores eléctricos y las emisiones asociadas.
           </p>
         </div>
 
@@ -38,16 +34,15 @@ export default function CasoPropuesta() {
               mediante sistemas de adsorción.
             </li>
             <li>
-              Reducir el consumo eléctrico asociado a enfriamiento por
-              compresión mecánica.
+              Reducir el consumo eléctrico asociado a enfriamiento por compresión
+              mecánica.
             </li>
             <li>
               Disminuir emisiones indirectas (Scope 2) mediante sustitución
               parcial de chillers eléctricos.
             </li>
             <li>
-              Medir kWh evitados, tCO₂e evitadas, TR instaladas y
-              disponibilidad.
+              Medir kWh evitados, tCO₂e evitadas, TR instaladas y disponibilidad.
             </li>
           </ul>
         </div>
@@ -83,8 +78,8 @@ export default function CasoPropuesta() {
               GWh/año.
             </li>
             <li>
-              <strong>Chiller de adsorción:</strong> 50–100 kW de
-              enfriamiento; COP de diseño 0.5.
+              <strong>Chiller de adsorción:</strong> 50–100 kW de enfriamiento;
+              COP de diseño 0.5.
             </li>
             <li>
               <strong>CAPEX por planta:</strong> 1.1 – 1.7 MUSD.

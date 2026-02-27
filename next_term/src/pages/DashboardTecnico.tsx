@@ -1,5 +1,3 @@
-"use client";
-
 import {
   LineChart,
   Line,
@@ -23,14 +21,14 @@ import {
   produccionFrioVsDemanda,
   alarmasEstado,
   degradacionCop,
-} from "../../lib/mockData";
+} from "../lib/mockData";
 
-export default function DashboardTecnicoPage() {
-  const donutData = [
-    { name: "Disponible", value: kpiTecnico.disponibilidadPercent, color: "#22c55e" },
-    { name: "No disp.", value: 100 - kpiTecnico.disponibilidadPercent, color: "#ebebeb" },
-  ];
+const donutData = [
+  { name: "Disponible", value: kpiTecnico.disponibilidadPercent, color: "#22c55e" },
+  { name: "No disp.", value: 100 - kpiTecnico.disponibilidadPercent, color: "#ebebeb" },
+];
 
+export default function DashboardTecnico() {
   return (
     <div className="min-h-screen bg-[#ebebeb]/40">
       <div className="mx-auto max-w-6xl px-4 py-8 md:px-6">
@@ -41,25 +39,21 @@ export default function DashboardTecnicoPage() {
           Ingenieros / Operadores – desempeño y eficiencia térmica
         </p>
 
-        {/* 1. KPIs */}
         <section className="mt-8">
           <h2 className="text-lg font-semibold text-[#16232A]">KPIs principales</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            <div className="rounded-xl bg-white p-4 shadow-sm border border-[#ebebeb]">
+            <div className="rounded-xl border border-[#ebebeb] bg-white p-4 shadow-sm">
               <p className="text-xs font-medium text-[#075056]">kW térmicos recuperados</p>
               <p className="text-2xl font-bold text-[#16232A]">{kpiTecnico.kwTermicosRecuperados}</p>
               <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-[#ebebeb]">
-                <div
-                  className="h-full rounded-full bg-[#FF5B04]"
-                  style={{ width: "85%" }}
-                />
+                <div className="h-full rounded-full bg-[#FF5B04]" style={{ width: "85%" }} />
               </div>
             </div>
-            <div className="rounded-xl bg-white p-4 shadow-sm border border-[#ebebeb]">
+            <div className="rounded-xl border border-[#ebebeb] bg-white p-4 shadow-sm">
               <p className="text-xs font-medium text-[#075056]">kW frío producido</p>
               <p className="text-2xl font-bold text-[#16232A]">{kpiTecnico.kwFrioProducido}</p>
             </div>
-            <div className="rounded-xl bg-white p-4 shadow-sm border border-[#ebebeb]">
+            <div className="rounded-xl border border-[#ebebeb] bg-white p-4 shadow-sm">
               <p className="text-xs font-medium text-[#075056]">COP térmico real</p>
               <p className="text-2xl font-bold text-[#16232A]">{kpiTecnico.copReal}</p>
               <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-[#ebebeb]">
@@ -69,7 +63,7 @@ export default function DashboardTecnicoPage() {
                 />
               </div>
             </div>
-            <div className="rounded-xl bg-white p-4 shadow-sm border border-[#ebebeb]">
+            <div className="rounded-xl border border-[#ebebeb] bg-white p-4 shadow-sm">
               <p className="text-xs font-medium text-[#075056]">% Disponibilidad</p>
               <div className="flex items-center gap-2">
                 <ResponsiveContainer width={60} height={60}>
@@ -91,17 +85,16 @@ export default function DashboardTecnicoPage() {
                 <p className="text-2xl font-bold text-[#16232A]">{kpiTecnico.disponibilidadPercent}%</p>
               </div>
             </div>
-            <div className="rounded-xl bg-white p-4 shadow-sm border border-[#ebebeb]">
+            <div className="rounded-xl border border-[#ebebeb] bg-white p-4 shadow-sm">
               <p className="text-xs font-medium text-[#075056]">ΔT intercambiador (°C)</p>
               <p className="text-2xl font-bold text-[#16232A]">{kpiTecnico.deltaTIntercambiador}</p>
             </div>
           </div>
         </section>
 
-        {/* 2. Energía recuperada vs diseño */}
         <section className="mt-10">
           <h2 className="text-lg font-semibold text-[#16232A]">Energía recuperada vs diseño</h2>
-          <div className="mt-4 h-64 rounded-xl bg-white p-4 shadow-sm border border-[#ebebeb] md:h-80">
+          <div className="mt-4 h-64 rounded-xl border border-[#ebebeb] bg-white p-4 shadow-sm md:h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={energiaRecuperadaVsDiseño}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#ebebeb" />
@@ -116,35 +109,33 @@ export default function DashboardTecnicoPage() {
           </div>
         </section>
 
-        {/* 3. Balance energético (simplified) */}
         <section className="mt-10">
           <h2 className="text-lg font-semibold text-[#16232A]">Balance energético</h2>
           <p className="mt-1 text-sm text-[#075056]">Entrada: {balanceEnergetico.entrada} MWh/año (estimado)</p>
           <div className="mt-4 flex flex-wrap gap-4">
-            <div className="flex items-center gap-2 rounded-lg bg-white px-4 py-2 shadow-sm border border-[#ebebeb]">
+            <div className="flex items-center gap-2 rounded-lg border border-[#ebebeb] bg-white px-4 py-2 shadow-sm">
               <span className="h-3 w-3 rounded-full bg-[#22c55e]" />
               <span>Recuperado {balanceEnergetico.recuperado}%</span>
             </div>
-            <div className="flex items-center gap-2 rounded-lg bg-white px-4 py-2 shadow-sm border border-[#ebebeb]">
+            <div className="flex items-center gap-2 rounded-lg border border-[#ebebeb] bg-white px-4 py-2 shadow-sm">
               <span className="h-3 w-3 rounded-full bg-[#ebebeb]" />
               <span>No recuperable {balanceEnergetico.noRecuperable}%</span>
             </div>
-            <div className="flex items-center gap-2 rounded-lg bg-white px-4 py-2 shadow-sm border border-[#ebebeb]">
+            <div className="flex items-center gap-2 rounded-lg border border-[#ebebeb] bg-white px-4 py-2 shadow-sm">
               <span className="h-3 w-3 rounded-full bg-[#FF5B04]" />
               <span>Frío generado {balanceEnergetico.frioGenerado}%</span>
             </div>
-            <div className="flex items-center gap-2 rounded-lg bg-white px-4 py-2 shadow-sm border border-[#ebebeb]">
+            <div className="flex items-center gap-2 rounded-lg border border-[#ebebeb] bg-white px-4 py-2 shadow-sm">
               <span className="h-3 w-3 rounded-full bg-[#075056]" />
               <span>Pérdidas {balanceEnergetico.perdidas}%</span>
             </div>
           </div>
         </section>
 
-        {/* 4. Circuito hidráulico */}
         <section className="mt-10">
           <h2 className="text-lg font-semibold text-[#16232A]">Circuito hidráulico</h2>
           <p className="mt-1 text-sm text-[#075056]">Temperatura (°C), flujo (m³/h), presión (bar)</p>
-          <div className="mt-4 h-64 rounded-xl bg-white p-4 shadow-sm border border-[#ebebeb] md:h-80">
+          <div className="mt-4 h-64 rounded-xl border border-[#ebebeb] bg-white p-4 shadow-sm md:h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={circuitoSemana}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#ebebeb" />
@@ -161,10 +152,9 @@ export default function DashboardTecnicoPage() {
           </div>
         </section>
 
-        {/* 5. Producción frío vs demanda */}
         <section className="mt-10">
           <h2 className="text-lg font-semibold text-[#16232A]">Producción de frío vs demanda</h2>
-          <div className="mt-4 h-64 rounded-xl bg-white p-4 shadow-sm border border-[#ebebeb] md:h-80">
+          <div className="mt-4 h-64 rounded-xl border border-[#ebebeb] bg-white p-4 shadow-sm md:h-80">
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={produccionFrioVsDemanda}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#ebebeb" />
@@ -180,7 +170,6 @@ export default function DashboardTecnicoPage() {
           </div>
         </section>
 
-        {/* 6. Alarmas y estado */}
         <section className="mt-10">
           <h2 className="text-lg font-semibold text-[#16232A]">Alarmas y estado del sistema</h2>
           <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-5">
@@ -197,19 +186,16 @@ export default function DashboardTecnicoPage() {
                   value ? "border-[#22c55e] bg-[#22c55e]/10" : "border-[#ef4444] bg-[#ef4444]/10"
                 }`}
               >
-                <span
-                  className={`h-4 w-4 rounded-full ${value ? "bg-[#22c55e]" : "bg-[#ef4444]"}`}
-                />
+                <span className={`h-4 w-4 rounded-full ${value ? "bg-[#22c55e]" : "bg-[#ef4444]"}`} />
                 <span className="text-sm font-medium text-[#16232A]">{label}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* 7. Degradación COP */}
         <section className="mt-10">
           <h2 className="text-lg font-semibold text-[#16232A]">Degradación del COP</h2>
-          <div className="mt-4 h-64 rounded-xl bg-white p-4 shadow-sm border border-[#ebebeb] md:h-80">
+          <div className="mt-4 h-64 rounded-xl border border-[#ebebeb] bg-white p-4 shadow-sm md:h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={degradacionCop}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#ebebeb" />

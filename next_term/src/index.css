@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #16232A;
+  --nextherm-orange: #FF5B04;
+  --nextherm-gray: #ebebeb;
+  --nextherm-teal: #075056;
+  --nextherm-dark: #16232A;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}

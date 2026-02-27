@@ -1,4 +1,4 @@
-# Deploy from a branch: build Next.js static export and push to gh-pages.
+# Deploy from a branch: build Vite app and push dist/ to gh-pages.
 # In repo Settings > Pages > Source: Deploy from a branch > Branch: gh-pages > Folder: / (root).
 
 name: Deploy to GitHub Pages (branch)
@@ -37,10 +37,9 @@ jobs:
           npm ci
           npm run build
 
-      # Next.js static export with basePath puts index.html and _next in out/; deploy to gh-pages root.
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: next_term/out
+          publish_dir: next_term/dist
           force_orphan: true

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -11,16 +11,16 @@ export default function Footer() {
           Galván, Valeria Sada Bello, Crisia Pineda). Febrero 2025.
         </p>
         <nav className="mt-4 flex flex-wrap gap-4 text-sm">
-          <Link href="/" className="hover:text-white underline-offset-2 hover:underline">
+          <Link to="/" className="hover:text-white underline-offset-2 hover:underline">
             Inicio
           </Link>
-          <Link href="/#caso" className="hover:text-white underline-offset-2 hover:underline">
+          <Link to="/" className="hover:text-white underline-offset-2 hover:underline">
             Caso y propuesta
           </Link>
-          <Link href="/dashboard-tecnico" className="hover:text-white underline-offset-2 hover:underline">
+          <Link to="/dashboard-tecnico" className="hover:text-white underline-offset-2 hover:underline">
             Dashboard técnico
           </Link>
-          <Link href="/dashboard-ejecutivo" className="hover:text-white underline-offset-2 hover:underline">
+          <Link to="/dashboard-ejecutivo" className="hover:text-white underline-offset-2 hover:underline">
             Dashboard ejecutivo
           </Link>
         </nav>

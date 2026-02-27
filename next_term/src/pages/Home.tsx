@@ -1,6 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import CasoPropuesta from "./components/CasoPropuesta";
+import { Link } from "react-router-dom";
+import CasoPropuesta from "../components/CasoPropuesta";
+
+const base = import.meta.env.BASE_URL;
 
 export default function Home() {
   return (
@@ -17,8 +18,8 @@ export default function Home() {
                 plantas industriales.
               </p>
             </div>
-            <Image
-              src="/logo-full.png"
+            <img
+              src={`${base}logo-full.png`}
               alt="NexTherm – Thermal Recovery"
               width={280}
               height={100}
@@ -45,7 +46,7 @@ export default function Home() {
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             <Link
-              href="/dashboard-tecnico"
+              to="/dashboard-tecnico"
               className="flex min-h-[120px] flex-col rounded-xl border-2 border-[#ebebeb] bg-white p-6 shadow-sm transition hover:border-[#FF5B04] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF5B04]"
             >
               <span className="text-lg font-semibold text-[#16232A]">
@@ -56,7 +57,7 @@ export default function Home() {
                 recuperada vs diseño, balance energético, circuito hidráulico,
                 alarmas y degradación del COP.
               </span>
-              <span className="mt-4 inline-flex items-center text-[#FF5B04] font-medium">
+              <span className="mt-4 inline-flex items-center font-medium text-[#FF5B04]">
                 Abrir
                 <svg
                   className="ml-1 h-4 w-4"
@@ -74,7 +75,7 @@ export default function Home() {
               </span>
             </Link>
             <Link
-              href="/dashboard-ejecutivo"
+              to="/dashboard-ejecutivo"
               className="flex min-h-[120px] flex-col rounded-xl border-2 border-[#ebebeb] bg-white p-6 shadow-sm transition hover:border-[#FF5B04] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF5B04]"
             >
               <span className="text-lg font-semibold text-[#16232A]">
@@ -84,7 +85,7 @@ export default function Home() {
                 Para dirección y ESG: impacto energético y económico, reducción
                 CO₂, programa 12 plantas y cumplimiento Bono Verde.
               </span>
-              <span className="mt-4 inline-flex items-center text-[#FF5B04] font-medium">
+              <span className="mt-4 inline-flex items-center font-medium text-[#FF5B04]">
                 Abrir
                 <svg
                   className="ml-1 h-4 w-4"
